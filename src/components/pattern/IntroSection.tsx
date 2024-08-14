@@ -1,15 +1,19 @@
 "use client";
 
-import React, { Suspense } from "react";
+import React, { useRef } from "react";
+
+// components
 import SwitchObject from "../objects/SwitchObject";
 
+// spline
+import { Application as SplineApplication } from "@splinetool/runtime";
+
 export default function IntroSection() {
+  const splineRef = useRef<SplineApplication | null>(null);
+
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <section>
-        <SwitchObject />
-        <p>Click Here !</p>
-      </section>
-    </Suspense>
+    <section>
+      <SwitchObject splineRef={splineRef} />
+    </section>
   );
 }

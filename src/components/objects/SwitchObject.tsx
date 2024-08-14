@@ -1,33 +1,29 @@
 "use client";
-import React, { useRef, Suspense } from "react";
+
+import React from "react";
 import Spline from "@splinetool/react-spline/next";
 
-const SwitchObject = () => {
-  const cube = useRef<any>(null);
+// spline
+import { Application as SplineApplication } from "@splinetool/runtime";
 
-  function onLoad(spline: any) {
-    const obj = spline.findObjectByName("Cube");
-    cube.current = obj;
-  }
+interface SwitchObjectProps {
+  splineRef: React.MutableRefObject<SplineApplication | null>;
+}
 
-  function moveObj() {
-    if (cube.current) {
-      cube.current.position.x += 10;
-      console.log(cube.current);
-    }
-  }
+const SwitchObject = (props: SwitchObjectProps) => {
+  const { splineRef } = props;
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <section>
-        <Spline
-          scene="https://prod.spline.design/N1FU0Xb8BYqhe8fY/scene.splinecode"
-          onLoad={onLoad}
-        />
-        <p>Click Here !</p>
-        <button onClick={moveObj}>Move Cube</button>
-      </section>
-    </Suspense>
+    <>
+      <Spline
+        scene="https://prod.spline.design/N1FU0Xb8BYqhe8fY/scene.splinecode"
+        onLoad={(spline: SplineApplication) => {
+          if (spline) splineRef.current = spline;
+        }}
+      />
+      <p>Click Here !</p>
+      <button>움직이기</button>
+    </>
   );
 };
 
