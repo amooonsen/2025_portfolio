@@ -36,17 +36,15 @@ export default function MaskText({ children, visibleValue = 0.75, containerClass
 
   return (
     <div ref={ref} className={`${containerClass} overflow-hidden leading-snug`}>
-      {
-        <motion.p
-          variants={maskTextAnimation}
-          initial="initial"
-          animate={inView ? "enter" : ""}
-          style={{ fontSize: fontSize }}
-          className={weight && `font-${weight}`}
-        >
-          {children}
-        </motion.p>
-      }
+      <motion.p
+        variants={maskTextAnimation}
+        initial="initial"
+        animate={inView ? "enter" : ""}
+        style={{ fontSize: typeof fontSize === "number" ? `${fontSize}px` : fontSize }}
+        className={weight ? `font-${weight}` : ""}
+      >
+        {children}
+      </motion.p>
     </div>
   );
 }

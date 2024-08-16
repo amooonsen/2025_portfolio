@@ -2,6 +2,10 @@
 
 import { useRef } from "react";
 import { useScreenSize } from "@/hooks/useSceenSize";
+
+// components
+import Header from "./Header";
+import Footer from "./Footer";
 import CustomCursor from "@/components/objects/CustomCursor";
 
 export function ClientProvider({ children }: { children: React.ReactNode }) {
@@ -10,9 +14,10 @@ export function ClientProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <>
+      <Header ref={stickyElement} />
       {children}
       <CustomCursor stickyElement={stickyElement} />
-      <div ref={stickyElement}></div>
+      <Footer />
     </>
   );
 }
