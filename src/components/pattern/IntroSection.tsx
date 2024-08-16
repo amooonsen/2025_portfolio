@@ -12,8 +12,9 @@ export default function IntroSection() {
   const splineRef = useRef<SplineApplication | null>(null);
 
   return (
-    <section>
+    <section className="relative min-h-screen">
       <SwitchObject splineRef={splineRef} />
+      <p className="absolute z-10 top-1/2 left-1/2">Click Here !</p>
     </section>
   );
 }
