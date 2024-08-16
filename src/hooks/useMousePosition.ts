@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 
 interface MousePosition {
@@ -12,7 +14,7 @@ export const useMousePosition = (): MousePosition => {
     let frameId: number;
 
     const setFromEvent = (e: MouseEvent) => {
-      cancelAnimationFrame(frameId);
+      if (frameId) cancelAnimationFrame(frameId);
       frameId = requestAnimationFrame(() => {
         setPosition({ x: e.clientX, y: e.clientY });
       });
@@ -22,7 +24,7 @@ export const useMousePosition = (): MousePosition => {
 
     return () => {
       window.removeEventListener("mousemove", setFromEvent);
-      cancelAnimationFrame(frameId);
+      if (frameId) cancelAnimationFrame(frameId);
     };
   }, []);
 

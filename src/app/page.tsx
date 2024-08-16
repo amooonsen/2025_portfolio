@@ -1,7 +1,6 @@
-import Image from 'next/image';
+import Image from "next/image";
 
-import IntroSection from '@/components/pattern/IntroSection';
-
+import IntroSection from "@/components/pattern/IntroSection";
 export default function Home() {
   return (
     <>

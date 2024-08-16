@@ -9,7 +9,6 @@ import "@/assets/styles/custom.css";
 // components
 import SmoothScrollProvider from "@/components/common/SmoothScrollProvider";
 import { ClientProvider } from "@/components/common/ClientProvider";
-import CustomCursor from "@/components/objects/CustomCursor";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,7 +26,6 @@ export default function RootLayout({
     <html lang="ko" className="dark">
       <SmoothScrollProvider />
       <body className={inter.className}>
-        <CustomCursor />
         <ClientProvider>{children}</ClientProvider>
       </body>
     </html>
