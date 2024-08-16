@@ -1,13 +1,14 @@
 import { create } from "zustand";
-import { MutableRefObject } from "react";
 
 interface CursorState {
   cursorText: string;
   cursorVariant: string;
-  cursorRef: MutableRefObject<HTMLDivElement | Element | null>;
+  cursorRef: {
+    current: HTMLDivElement | null;
+  };
   setCursorText: (text: string) => void;
   setCursorVariant: (variant: string) => void;
-  setCursorRef: (ref: MutableRefObject<HTMLDivElement | Element | null>) => void;
+  setCursorRef: (ref: HTMLDivElement | null) => void;
 }
 
 export const useCursorStore = create<CursorState>((set) => ({
@@ -16,5 +17,5 @@ export const useCursorStore = create<CursorState>((set) => ({
   cursorRef: { current: null },
   setCursorText: (text) => set({ cursorText: text }),
   setCursorVariant: (variant) => set({ cursorVariant: variant }),
-  setCursorRef: (ref) => set({ cursorRef: ref }),
+  setCursorRef: (ref) => set((state) => ({ cursorRef: { ...state.cursorRef, current: ref } })),
 }));
