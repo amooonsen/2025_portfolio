@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 // spline
 import { Application as SplineApplication } from "@splinetool/runtime";
@@ -24,7 +24,8 @@ const SwitchObject = (props: SwitchObjectProps) => {
   const controls = useAnimation();
 
   async function handleOnClick(e: SplineEvent) {
-    const mainContainer = document.querySelector(".main-container") as HTMLElement;
+    const mainContainer = document.querySelector("#main-container") as HTMLElement;
+    const introSection = document.querySelector("#intro-section") as HTMLElement;
     document.documentElement.classList.remove("dark");
     await delay(500);
 
@@ -42,12 +43,20 @@ const SwitchObject = (props: SwitchObjectProps) => {
         transition: { duration: 1 },
       });
 
-      document.body.removeAttribute("style");
-      document.body.removeAttribute("data-lenis-prevent");
-      document.body.removeAttribute("data-lenis-prevent-wheel");
+      introSection.removeAttribute("data-lenis-prevent");
+      introSection.removeAttribute("data-lenis-prevent-wheel");
       onRemoveIntro();
     }
   }
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+
+    document.body.style.overflow = "hidden";
+
+    return () => document.body.removeAttribute("style");
+  });
+
   return (
     <AnimatePresence>
       <Spline

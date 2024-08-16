@@ -17,7 +17,12 @@ export default function IntroSection() {
   };
 
   return isVisible ? (
-    <section className="intro-section relative min-h-screen">
+    <section
+      id="intro-section"
+      className="relative min-h-screen"
+      data-lenis-prevent
+      data-lenis-prevent-wheel
+    >
       <SwitchObject splineRef={splineRef} onRemoveIntro={handleRemoveIntro} />
       <p className="absolute z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         Click Here !

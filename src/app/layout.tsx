@@ -25,12 +25,7 @@ export default function RootLayout({
   return (
     <html lang="ko" className="dark">
       <SmoothScrollProvider />
-      <body
-        className={inter.className}
-        style={{ overflow: "hidden" }}
-        data-lenis-prevent
-        data-lenis-prevent-wheel
-      >
+      <body className={inter.className}>
         <ClientProvider>{children}</ClientProvider>
       </body>
     </html>
