@@ -8,7 +8,7 @@ import Spline, { SplineEvent } from "@splinetool/react-spline";
 import { useCursorStore } from "@/store/cursorStore";
 
 // animation
-import { motion, useAnimation, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 
 // utils
 import { delay } from "@/lib/utils";
@@ -21,7 +21,6 @@ interface SwitchObjectProps {
 const SwitchObject = (props: SwitchObjectProps) => {
   const { splineRef, onRemoveIntro } = props;
   const { cursorRef, setCursorText, setCursorVariant } = useCursorStore();
-  const controls = useAnimation();
 
   async function handleOnClick(e: SplineEvent) {
     const mainContainer = document.querySelector("#main-container") as HTMLElement;
@@ -36,12 +35,7 @@ const SwitchObject = (props: SwitchObjectProps) => {
         behavior: "smooth",
       });
 
-      await delay(1000);
-
-      controls.start({
-        opacity: 1,
-        transition: { duration: 1 },
-      });
+      await delay(1200);
 
       introSection.removeAttribute("data-lenis-prevent");
       introSection.removeAttribute("data-lenis-prevent-wheel");

@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 // assets & fonts
 import { Inter } from "next/font/google";
 import "@/assets/styles/globals.css";
-import "@/assets/styles/custom.css";
+import "@/assets/styles/custom.scss";
 
 // components
 import SmoothScrollProvider from "@/components/common/SmoothScrollProvider";

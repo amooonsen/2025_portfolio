@@ -1,0 +1,46 @@
+.intro-pattern {
+  background-color: #e5e5f7;
+  background-image: repeating-linear-gradient(45deg, rgba(156, 157, 162, 1) 25%, transparent 25%, transparent 75%, rgba(156, 157, 162, 1) 75%, rgba(156, 157, 162, 1)), repeating-linear-gradient(45deg, rgba(156, 157, 162, 1) 25%, #e5e5f7 25%, #e5e5f7 75%, rgba(156, 157, 162, 1) 75%, rgba(156, 157, 162, 1));
+  background-position: 0 0, 23px 23px;
+  background-size: 46px 46px;
+}
+
+.introduction {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 99;
+  background-color: rgb(30 64 175);
+
+  svg {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: calc(100% + 300px);
+
+    path {
+      fill: rgb(30 64 175);
+    }
+  }
+
+  p {
+    display: flex;
+    color: white;
+    font-size: 42px;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+
+    span {
+      display: block;
+      width: 10px;
+      height: 10px;
+      background-color: white;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+  }
+}

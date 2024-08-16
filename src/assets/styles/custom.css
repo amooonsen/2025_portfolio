@@ -1,6 +1,0 @@
-.intro-pattern {
-  background-color: #e5e5f7;
-  background-image: repeating-linear-gradient(45deg, rgba(156, 157, 162, 1) 25%, transparent 25%, transparent 75%, rgba(156, 157, 162, 1) 75%, rgba(156, 157, 162, 1)), repeating-linear-gradient(45deg, rgba(156, 157, 162, 1) 25%, #e5e5f7 25%, #e5e5f7 75%, rgba(156, 157, 162, 1) 75%, rgba(156, 157, 162, 1));
-  background-position: 0 0, 23px 23px;
-  background-size: 46px 46px;
-}
