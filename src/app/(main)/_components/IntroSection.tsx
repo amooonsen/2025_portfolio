@@ -3,7 +3,7 @@
 import React, { useState, useRef } from "react";
 
 // components
-import SwitchObject from "../objects/SwitchObject";
+import SwitchObject from "./SwitchObject";
 
 // spline
 import { Application as SplineApplication } from "@splinetool/runtime";
@@ -23,5 +23,5 @@ export default function IntroSection() {
         Click Here !
       </p>
     </section>
-  ) : null; // Conditional rendering based on state
+  ) : null;
 }

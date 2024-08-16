@@ -10,6 +10,9 @@ import { useCursorStore } from "@/store/cursorStore";
 // animation
 import { motion, useAnimation, AnimatePresence } from "framer-motion";
 
+// utils
+import { delay } from "@/lib/utils";
+
 interface SwitchObjectProps {
   splineRef: React.MutableRefObject<SplineApplication | null>;
   onRemoveIntro: () => void;
@@ -20,8 +23,11 @@ const SwitchObject = (props: SwitchObjectProps) => {
   const { cursorRef, setCursorText, setCursorVariant } = useCursorStore();
   const controls = useAnimation();
 
-  function handleOnClick(e: SplineEvent) {
+  async function handleOnClick(e: SplineEvent) {
     const mainContainer = document.querySelector(".main-container") as HTMLElement;
+    document.documentElement.classList.remove("dark");
+    await delay(500);
+
     if (mainContainer) {
       window.scroll({
         top: mainContainer.offsetTop,
@@ -29,21 +35,19 @@ const SwitchObject = (props: SwitchObjectProps) => {
         behavior: "smooth",
       });
 
-      document.documentElement.classList.remove("dark");
+      await delay(1000);
 
-      setTimeout(() => {
-        controls.start({
-          opacity: 1,
-          transition: { duration: 1 },
-        });
+      controls.start({
+        opacity: 1,
+        transition: { duration: 1 },
+      });
 
-        document.body.removeAttribute("style");
-        document.body.removeAttribute("data-lenis-prevent, data-lenis-prevent-wheel");
-        onRemoveIntro();
-      }, 1000);
+      document.body.removeAttribute("style");
+      document.body.removeAttribute("data-lenis-prevent");
+      document.body.removeAttribute("data-lenis-prevent-wheel");
+      onRemoveIntro();
     }
   }
-
   return (
     <AnimatePresence>
       <Spline
