@@ -13,18 +13,15 @@ import { useCursorStore } from "@/store/cursorStore";
 interface SwitchObjectProps {
   splineRef: React.MutableRefObject<SplineApplication | null>;
 }
-const className = "dark";
 
 const SwitchObject = (props: SwitchObjectProps) => {
   const { splineRef } = props;
-  const { darkMode, toggleDarkMode } = useDarkMode();
   const { cursorRef, setCursorText, setCursorVariant } = useCursorStore();
 
   function handleOnClick(e: SplineEvent) {
     document.documentElement.classList.remove("dark");
   }
 
-  console.log(cursorRef);
   return (
     <>
       <Spline

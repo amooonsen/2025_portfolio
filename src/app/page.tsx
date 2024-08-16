@@ -1,6 +1,10 @@
-import Image from "next/image";
+import dynamic from "next/dynamic";
 
-import IntroSection from "@/components/pattern/IntroSection";
+const IntroSection = dynamic(() => import("@/components/pattern/IntroSection"), {
+  ssr: false,
+  loading: () => <div className="w-screen h-screen">로딩 중...</div>,
+});
+
 export default function Home() {
   return (
     <>

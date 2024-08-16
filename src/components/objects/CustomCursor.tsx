@@ -106,7 +106,7 @@ export default function StickyCursor({ stickyElement }: Props) {
         height: cursorSize,
       }}
       ref={cursor}
-      className="fixed top-1/2 left-1/2 w-[15px] h-[15px] bg-foreground rounded-full pointer-events-none"
+      className="fixed top-1/2 left-1/2 w-[15px] h-[15px] bg-primary rounded-full pointer-events-none"
     ></motion.div>
   );
 }
