@@ -39,6 +39,8 @@ export const metadata: Metadata = {
   keywords: "NextJS 15, Turbopack, Typescript, tailwindcss, shadcn",
 };
 
+// dev commit
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -57,6 +59,7 @@ export default function RootLayout({
               </main>
               <Footer />
             </div>
+            <MouseEffect />
           </ThemeProvider>
         </ClientProvider>
         <GoogleAnalytics gaId="G-내계정키 환경변수로 넣을꺼임" />
