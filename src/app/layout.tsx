@@ -39,6 +39,8 @@ export const metadata: Metadata = {
   keywords: "NextJS 15, Turbopack, Typescript, tailwindcss, shadcn",
 };
 
+// dev commit
+
 export default function RootLayout({
   children,
 }: Readonly<{
