@@ -59,7 +59,6 @@ export default function RootLayout({
               </main>
               <Footer />
             </div>
-            <MouseEffect />
           </ThemeProvider>
         </ClientProvider>
         <GoogleAnalytics gaId="G-내계정키 환경변수로 넣을꺼임" />
