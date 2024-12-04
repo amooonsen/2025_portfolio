@@ -1,4 +1,4 @@
-import HeroSectionCanvas from "@/components/HeroSectionCanvas";
+// import HeroSectionCanvas from "@/components/HeroSectionCanvas";
 
 export default function Home() {
   return (
